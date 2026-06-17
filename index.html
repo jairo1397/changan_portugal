@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Portugal vs Uzbekistan</title>
+    <title>Colombia vs Portugal</title>
     <style>
 
         :root {
@@ -208,7 +208,6 @@
                 top: 80%;
                 right: 22.2%;
                 font-size: 16px;
-                letter-spacing: 1px;
             }
         }
 
@@ -218,13 +217,13 @@
                 /* Custom vertical positioning for portrait */
                 position: absolute;
                 top: 56.5%;
-                left: 0%;
+                left: 1%;
             }
             #away-team-wrapper {
                 /* Custom vertical positioning for portrait */
                 position: absolute;
                 top: 56.5%;
-                right: -5%;
+                right: -2%;
             }
             #time-wrapper {
                 /* Custom vertical positioning for portrait */
@@ -263,9 +262,9 @@
             }
             #countdown-away {
                 position: absolute;
-                top: 66.2%;
+                top: 66%;
                 left: 64.5%;
-                font-size: 16px;
+                font-size: 18px;
                 letter-spacing: 0;
             }
         }
@@ -279,7 +278,7 @@
     <div id="score-container" class="layout-container">
         <!-- Home Team Component -->
         <div id="home-team-wrapper" class="team-wrapper">
-            <div id="home-name" class="team-name">PORTUGAL</div>
+            <div id="home-name" class="team-name">COLOMBIA</div>
             <div id="home-score" class="score-number">00</div>
         </div>
 
@@ -290,15 +289,15 @@
 
         <!-- Away Team Component -->
         <div id="away-team-wrapper" class="team-wrapper">
-            <div id="away-name" class="team-name">UZBEKISTÁN</div>
+            <div id="away-name" class="team-name">PORTUGAL</div>
             <div id="away-score" class="score-number">00</div>
         </div>
     </div>
     
     <div id="countdown-container" class="layout-container">
         <div id="days-left-text">00 DÍAS</div>
-        <div id="countdown-home" class="team-name">PORTUGAL</div>
-        <div id="countdown-away" class="team-name">UZBEKISTÁN</div>
+        <div id="countdown-home" class="team-name">COLOMBIA</div>
+        <div id="countdown-away" class="team-name">PORTUGAL</div>
     </div>
 
     <!-- <button id="testGoalBtn" class="test-btn">🎯 TEST</button> -->
@@ -308,8 +307,8 @@
     /**
      * Logic for Screen Size and Image Selection:
      */
-    const TARGET_DATE = new Date('2026-06-23T12:00:00-05:00'); // prod
-    // const TARGET_DATE = new Date('2026-06-17T15:12:00-05:00'); // dev
+    const TARGET_DATE = new Date('2026-06-27T18:30:00-05:00'); // prod
+    // const TARGET_DATE = new Date('2026-06-17T16:01:00-05:00'); // dev
 
     function isGameStarted() {
         // Force current time to be compared with the target UTC-5 date
@@ -367,9 +366,9 @@
     updateCountdownDisplay();
     window.addEventListener('resize', updateBackground);
 
-    const GAME_ID = "portugal_vs_congo";
-    const STORAGE_KEY = "portugal_vs_congo_score";
-    const TIME_STORAGE_KEY = "portugal_vs_congo_time";
+    const GAME_ID = "portugal_vs_colombia";
+    const STORAGE_KEY = "portugal_vs_colombia_score";
+    const TIME_STORAGE_KEY = "portugal_vs_colombia_time";
     
     function formatScore(num) {
         return num.toString().padStart(2, '0');
@@ -401,8 +400,8 @@
 
     async function loadData() {
         try {
-            const res = await fetch("https://doradobet-server.onrender.com/data?gameId=16120099"); // prod
-            // const res = await fetch("http://localhost:9009/data?gameId=16120099"); // dev
+            const res = await fetch("https://doradobet-server.onrender.com/data?gameId=16248990"); // prod
+            // const res = await fetch("http://localhost:9009/data?gameId=16248990"); // dev
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             
             const data = await res.json();

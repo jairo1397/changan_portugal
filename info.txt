@@ -1,8 +1,8 @@
 match id
-16120099
+16248990
 
 starting 
-2026/06/23 12:00 p.m -5 utc
+2026/06/27 06:30 p.m -5 utc
 
 Fonts:
 score numbers -> tech
