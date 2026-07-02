@@ -348,9 +348,11 @@
             const now = new Date();
             const nowLima = new Date(now.toLocaleString("en-US", {timeZone: "America/Lima"}));
 
+            const targetLima = new Date(TARGET_DATE.toLocaleString("en-US", {timeZone: "America/Lima"}));
+
             // Normalize to midnight for day calculation
             const nowMidnight = new Date(nowLima.getFullYear(), nowLima.getMonth(), nowLima.getDate());
-            const targetMidnight = new Date(TARGET_DATE.getFullYear(), TARGET_DATE.getMonth(), TARGET_DATE.getDate());
+            const targetMidnight = new Date(targetLima.getFullYear(), targetLima.getMonth(), targetLima.getDate());
 
             const diff = targetMidnight - nowMidnight;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
