@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Croacia vs Portugal</title>
+    <title>Portugal vs España</title>
     <style>
 
         :root {
@@ -302,7 +302,7 @@
     <div id="score-container" class="layout-container">
         <!-- Home Team Component -->
         <div id="home-team-wrapper" class="team-wrapper">
-            <div id="home-name" class="team-name">CROACIA</div>
+            <div id="home-name" class="team-name">ESPAÑA</div>
             <div id="home-score" class="score-number">00</div>
         </div>
 
@@ -320,7 +320,7 @@
     
     <div id="countdown-container" class="layout-container">
         <div id="days-left-text">00 DÍAS</div>
-        <div id="countdown-home" class="team-name">CROACIA</div>
+        <div id="countdown-home" class="team-name">ESPAÑA</div>
         <div id="countdown-away" class="team-name">PORTUGAL</div>
     </div>
 
@@ -333,7 +333,7 @@
     /**
      * Logic for Screen Size and Image Selection:
      */
-    const TARGET_DATE = new Date('2026-07-02T18:00:00-05:00'); // prod
+    const TARGET_DATE = new Date('2026-07-06T14:00:00-05:00'); // prod
     // const TARGET_DATE = new Date('2026-06-23T16:01:00-05:00'); // dev
 
     function isGameStarted() {
@@ -408,9 +408,9 @@
     updateBackground();
     window.addEventListener('resize', updateBackground);
 
-    const GAME_ID = "croacia_vs_portugal";
-    const STORAGE_KEY = "croacia_vs_portugal_score";
-    const TIME_STORAGE_KEY = "croacia_vs_portugal_time";
+    const GAME_ID = "portugal_vs_espana";
+    const STORAGE_KEY = "portugal_vs_espana_score_v2";
+    const TIME_STORAGE_KEY = "portugal_vs_espana_time_v2";
     
     function formatScore(num) {
         return num.toString().padStart(2, '0');
@@ -442,7 +442,7 @@
 
     async function loadData() {
         try {
-            const res = await fetch("https://doradobet-server-qczt.onrender.com/data?gameId=16934692"); // prod
+            const res = await fetch("https://doradobet-server-qczt.onrender.com/data?gameId=16983281"); // prod
             // const res = await fetch("http://localhost:9009/data?gameId=16248990"); // dev
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             
@@ -461,20 +461,20 @@
             const scoreParts = data.score.split(", ");
             
             if (scoreParts.length === 2) {
-                let croaciaScore = 0;
                 let portugalScore = 0;
+                let espanaScore = 0;
 
                 scoreParts.forEach(part => {
                     const value = parseInt(part.split(" -> ")[1]);
                     if (part.toUpperCase().includes('PORTUGAL')) {
                         portugalScore = value;
                     } else {
-                        croaciaScore = value;
+                        espanaScore = value;
                     }
                 });
 
-                // homeScore = Croacia, awayScore = Portugal (as set in HTML)
-                const currentNumbers = [croaciaScore, portugalScore];
+                // homeScore = España, awayScore = Portugal (as set in HTML)
+                const currentNumbers = [espanaScore, portugalScore];
 
                 // Update UI and storage if the score changed AND is greater than or equal to previous
                 let shouldUpdate = false;
